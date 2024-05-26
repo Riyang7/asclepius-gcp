@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-ENV port=5000
+ENV port=3000
 
 ENV ENV MODEL_URL=https://storage.googleapis.com/sub-mlgc1/model-prod/model.json
 
