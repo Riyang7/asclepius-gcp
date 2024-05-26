@@ -1,20 +1,15 @@
-# Use the official Node.js 18 image
-FROM node:18.20.3
+FROM node:18
 
-# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 8080
+ENV port=5000
 
-# Command to run the application
-CMD [ "node", "src/server/server.js" ]
+ENV ENV MODEL_URL=https://storage.googleapis.com/sub-mlgc1/model-prod/model.json
+
+CMD [ "npm", "start" ]
